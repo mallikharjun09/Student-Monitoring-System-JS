@@ -1,0 +1,39 @@
+<html>
+     <head>
+           <script src="studentproject.js"></script>
+           <script>
+	 services = new StudentServices()
+	 
+                  function addStudentData(){
+	       id = document.getElementById("sid").value
+	       name = document.getElementById("sname").value
+	       email = document.getElementById("smail").value
+	       phone = document.getElementById("sphone").value
+	       gender = document.getElementById("gender").value
+
+	       //Add these details to the student Object.
+	       st = new Student(id,name,email,phone,gender)
+
+	       //Add this student object to students array with addStudent function
+	       services.addStudent(st)
+	       
+	        document.getElementById("data").innerHTML = services.getStudents()
+	      document.getElementById("sid").value=""
+	       document.getElementById("sname").value=""
+	       document.getElementById("smail").value=""
+	       document.getElementById("sphone").value=""
+	       document.getElementById("gender").value=""
+	  }
+           </script>
+      </head>
+      <body>
+            <input placeholder="Student Id" id="sid" /><br/>
+            <input placeholder="Student Name" id="sname" /><br/>
+            <input placeholder="Student Email" id="smail" /><br/>
+            <input placeholder="Student Phone number" id="sphone" /><br/>
+            <input placeholder="Student Gender" id="gender" /><br/>
+             <button onclick="addStudentData()">Add</button>
+             <div id="data">
+            </div>
+      </body>
+</html>
